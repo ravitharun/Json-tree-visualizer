@@ -1,16 +1,35 @@
-# React + Vite
+# JSON Tree Visualizer 🌳
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive JSON Tree Visualizer built using **React Flow**.  
+Paste your JSON data and visualize it as a hierarchical tree with search and highlighting.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Paste or type JSON data
+- Visualize JSON as a tree structure using React Flow
+- Search by JSON path and highlight nodes
+- Color-coded nodes for Objects, Arrays, and Primitives
+- Zoom and Pan controls
+- JSON validation and error handling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Tech Stack
+- React.js
+- React Flow
+- TailwindCSS (for styling)
 
-## React Compiler
+## 📦 Setup
+```bash
+git clone https://github.com/ravitharun/Json-tree-visualizer.git
+cd Json-tree-visualizer
+npm install
+npm start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🚀 **5. Push your code**
+Once your project is ready:
+```bash
+git add .
+git commit -m "Initial commit - JSON Tree Visualizer using React Flow"
+git branch -M main
+git push -u origin main
