@@ -1,37 +1,31 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext } from "react";
 import ReactFlow, { Background, Controls } from "reactflow";
 import "reactflow/dist/style.css";
 import { AppContext } from "./Theme";
 
-function JsonTree({ data }) {
-  // console.log("Incoming data:", data);
-  const { Dfvalue, setDfvalue, JsonSearch, setsearchJson } =
-    useContext(AppContext);
-  console.log({ Dfvalue, JsonSearch, setsearchJson });
+function JsonTree({ data, JsonSearch }) {
+  const { Dfvalue, JsonSearchContext, setsearchJson } = useContext(AppContext);
 
   const background = [
-    "linear-gradient(to right, #4facfe, #00f2fe)", // Blue Sky
-    "linear-gradient(to right, #43e97b, #38f9d7)", // Mint Green
-    "linear-gradient(to right, #fa709a, #fee140)", // Pink Sunrise
-    "linear-gradient(to right, #a18cd1, #fbc2eb)", // Lavender Dream
-    "linear-gradient(to right, #f093fb, #f5576c)", // Warm Sunset
-    "linear-gradient(to right, #5ee7df, #b490ca)", // Aqua Purple
-    "linear-gradient(to right, #667eea, #764ba2)", // Indigo Bloom
-    "linear-gradient(to right, #30cfd0, #330867)", // Ocean Deep
-    "linear-gradient(to right, #fdfbfb, #ebedee)", // Soft Gray
-    "linear-gradient(to right, #ff9a9e, #fad0c4)", // Pastel Pink
+    "linear-gradient(to right, #4facfe, #00f2fe)",
+    "linear-gradient(to right, #43e97b, #38f9d7)",
+    "linear-gradient(to right, #fa709a, #fee140)",
+    "linear-gradient(to right, #a18cd1, #fbc2eb)",
+    "linear-gradient(to right, #f093fb, #f5576c)",
+    "linear-gradient(to right, #5ee7df, #b490ca)",
+    "linear-gradient(to right, #667eea, #764ba2)",
+    "linear-gradient(to right, #30cfd0, #330867)",
+    "linear-gradient(to right, #fdfbfb, #ebedee)",
+    "linear-gradient(to right, #ff9a9e, #fad0c4)",
   ];
 
- let randomIndex = Math.floor(Math.random() * background.length);
-let Color = background[randomIndex];
+  let randomIndex = Math.floor(Math.random() * background.length);
+  let Color = background[randomIndex];
 
-  console.log(Color);
-  // ✅ safety check — don't process if data is null/undefined/non-object
   if (!data || typeof data !== "object") {
     return <p className="text-center text-red-500">No valid JSON data</p>;
   }
 
-  // ✅ recursive function to convert JSON → nodes + edges
   const createTree = (obj, parent = null, level = 0, index = 0) => {
     const nodes = [];
     const edges = [];
@@ -57,7 +51,6 @@ let Color = background[randomIndex];
         },
       });
 
-      // connect parent → child
       if (parent) {
         edges.push({
           id: `${parent}-${id}`,
@@ -84,9 +77,18 @@ let Color = background[randomIndex];
   };
 
   const { nodes, edges } = createTree(data);
+  function getValueByPath(obj, path) {
+    return path.split(".").reduce((acc, key) => acc && acc[key], obj);
+  }
+
+  const x = getValueByPath(data, JsonSearch);
 
   return (
     <div style={{ width: "100%", height: "600px" }}>
+      <h3 className="flex space-x-1 font-mono text-blue-500 ">
+         <b>{JsonSearch}</b>:{x == undefined ? <p className="text-red-500">{JsonSearch}Not found the json value</p> : x}
+      </h3>
+      
       <ReactFlow nodes={nodes} edges={edges} fitView>
         <Controls />
         <Background />

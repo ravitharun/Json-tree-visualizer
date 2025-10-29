@@ -4,11 +4,11 @@ import { AppContext } from "./Components/Theme";
 import JsonTree from "./Components/JsonTree";
 
 function App() {
-  const [ Dfvalue, setDfvalue ] = useState("Ligth");
-  const [ JsonSearch, setsearchJson ] = useState("");
+  const [ Dfvalue, setDfvalue ] = useState("dark");
+  const [ JsonSearchContext, setsearchJson ] = useState("user.name");
   return (
     <div>
-      <AppContext.Provider value={{ Dfvalue, setDfvalue, JsonSearch, setsearchJson  }}>
+      <AppContext.Provider value={{ Dfvalue, setDfvalue, JsonSearchContext, setsearchJson  }}>
         <Input />
         <JsonTree></JsonTree>
       </AppContext.Provider>
