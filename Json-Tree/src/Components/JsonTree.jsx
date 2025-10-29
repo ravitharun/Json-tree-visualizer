@@ -2,8 +2,9 @@ import React from "react";
 import ReactFlow, { Background, Controls } from "reactflow";
 import "reactflow/dist/style.css";
 
-function JsonTree({ data,theme }) {
-    console.log(theme,'theme')
+function JsonTree({ data }) {
+
+
   // Converts JSON into boxes [NodeS] and arrows [edge]
   const createTree = (obj, parent = null, level = 0, index = 0) => {
     const nodes = [];
@@ -33,9 +34,8 @@ function JsonTree({ data,theme }) {
           id: `${parent}-${id}`,
           source: parent,
           target: id,
-  
+
           animated: true,
-       
         });
       }
 
