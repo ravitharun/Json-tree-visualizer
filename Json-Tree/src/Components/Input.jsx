@@ -23,7 +23,7 @@ function Input() {
       setparseinpt(ParseInputJson);
     } catch (err) {
       console.log(err.message);
-      alert("⚠️ Invalid JSON format! Please check your input.");
+      alert("invalid JSON format! Please check your input.");
     }
   };
 
@@ -39,7 +39,7 @@ function Input() {
       setDfvalue("dark");
     }
   };
-  const Searchjosn = () => {
+  const SearchJosn = () => {
     if (!JsonSearch) {
       alert("Search input is required");
     }
@@ -54,7 +54,7 @@ function Input() {
       : "bg-gradient-to-br from-indigo-50 to-white text-gray-900"
   }`}
 >
-  {/* THEME TOGGLE BUTTON */}
+  
   <div className="absolute top-6 right-6">
     <button
       onClick={handelToggle}
@@ -65,7 +65,6 @@ function Input() {
     </button>
   </div>
 
-  {/* LEFT SIDE — Input Form */}
   <div
     className={`w-full md:w-1/2 rounded-2xl p-6 shadow-xl border transition-all duration-300 ${
       Dfvalue === "dark"
@@ -78,7 +77,7 @@ function Input() {
         Dfvalue === "dark" ? "text-indigo-300" : "text-indigo-700"
       }`}
     >
-      🧾 JSON Visualizer
+    JSON Visualizer
     </h1>
     <textarea
       name="JsonDataInput"
@@ -102,7 +101,6 @@ function Input() {
     </button>
   </div>
 
-  {/* RIGHT SIDE — JSON Tree */}
   <div
     className={`w-full md:w-1/2 rounded-2xl p-6 flex flex-col items-center justify-center space-y-4 transition-all duration-300 shadow-xl border ${
       Dfvalue === "dark"
@@ -113,7 +111,7 @@ function Input() {
     <div className="w-full flex items-center gap-2">
       <input
         type="text"
-        placeholder="🔍 Search JSON keys..."
+        placeholder=" Search JSON keys..."
         value={JsonSearch}
         onChange={(e) => SetJsonsearch(e.target.value)}
         className={`w-full px-4 py-2 rounded-xl outline-none transition-all duration-200 border ${
@@ -131,7 +129,7 @@ function Input() {
             Clear
           </button>
           <button
-            onClick={Searchjosn}
+            onClick={SearchJosn}
             className="bg-blue-500 text-white px-3 py-2 rounded-xl hover:bg-blue-600 transition duration-200"
           >
             Search
