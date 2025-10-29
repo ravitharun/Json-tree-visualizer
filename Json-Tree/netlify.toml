@@ -1,2 +1,14 @@
+[build]
+  base = "Json-Tree"
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
 
-C:\Users\Dell\Downloads\PERSONAL PROJECTS\CompanyTask\JSON-TREE\Json-Tree>
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "10"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
