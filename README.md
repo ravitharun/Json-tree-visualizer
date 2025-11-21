@@ -1,4 +1,4 @@
-# JSON Tree Visualizer 🌳
+# JSON Tree Visualizer 
 
 An interactive JSON Tree Visualizer built using **React Flow**.  
 Paste your JSON data and visualize it as a hierarchical tree with search and highlighting.
